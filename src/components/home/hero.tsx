@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { fadeUp } from "@/lib/animations";
+import { fadeUp, delay } from "@/lib/animations";
 
 export function Hero() {
   return (
@@ -14,7 +14,7 @@ export function Hero() {
         <motion.p
           initial={fadeUp.hidden}
           animate={fadeUp.visible}
-          transition= duration: 0.5, delay: 0 
+          transition={delay(0)}
           className="mb-4 font-mono text-sm text-accent tracking-widest uppercase"
         >
           Web3 Venture Studio
@@ -23,7 +23,7 @@ export function Hero() {
         <motion.h1
           initial={fadeUp.hidden}
           animate={fadeUp.visible}
-          transition= duration: 0.5, delay: 0.1 
+          transition={delay(0.1)}
           className="font-heading text-display-mobile md:text-display max-w-4xl mx-auto"
         >
           From hackathon to protocol.{" "}
@@ -33,7 +33,7 @@ export function Hero() {
         <motion.p
           initial={fadeUp.hidden}
           animate={fadeUp.visible}
-          transition= duration: 0.5, delay: 0.2 
+          transition={delay(0.2)}
           className="mt-6 text-body-lg text-text-secondary max-w-2xl mx-auto"
         >
           A Web3 venture studio that turns builder energy into grant-funded, launchpad-ready protocols &mdash; in 3 months.
@@ -42,7 +42,7 @@ export function Hero() {
         <motion.div
           initial={fadeUp.hidden}
           animate={fadeUp.visible}
-          transition= duration: 0.5, delay: 0.3 
+          transition={delay(0.3)}
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Link
