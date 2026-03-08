@@ -5,6 +5,7 @@ import { GlassCard } from "@/components/shared/glass-card";
 import { BentoGrid } from "@/components/shared/bento-grid";
 import { Crown, Users, Shield, Coins, Megaphone } from "lucide-react";
 import { motion } from "framer-motion";
+import { fadeUp, viewportOnce, stagger } from "@/lib/animations";
 
 const perks = [
   { icon: Crown, title: "Majority Ownership", description: "Keep 30\u201350%+ equity in your spinout. No predatory terms. Full control over your protocol." },
@@ -22,13 +23,7 @@ export function PerksGrid() {
       </div>
       <BentoGrid columns={3}>
         {perks.map((perk, i) => (
-          <motion.div
-            key={perk.title}
-            initial= opacity: 0, y: 20 
-            whileInView= opacity: 1, y: 0 
-            viewport= once: true 
-            transition= duration: 0.5, delay: i * 0.1 
-          >
+          <motion.div key={perk.title} initial={fadeUp.hidden} whileInView={fadeUp.visible} viewport={viewportOnce} transition={stagger(i)}>
             <GlassCard className="h-full">
               <perk.icon className="h-7 w-7 text-accent mb-3" />
               <h3 className="font-heading text-base font-bold mb-2">{perk.title}</h3>

@@ -2,28 +2,27 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { fadeUp } from "@/lib/animations";
 
 export function Hero() {
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
-      {/* Grid background */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(43,79,154,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(43,79,154,0.03)_1px,transparent_1px)] bg-[size:64px_64px]" />
-      {/* Radial glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[120px]" />
 
       <div className="container-content relative z-10 text-center">
         <motion.p
-          initial= opacity: 0, y: 20 
-          animate= opacity: 1, y: 0 
-          transition= duration: 0.5 
+          initial={fadeUp.hidden}
+          animate={fadeUp.visible}
+          transition= duration: 0.5, delay: 0 
           className="mb-4 font-mono text-sm text-accent tracking-widest uppercase"
         >
           Web3 Venture Studio
         </motion.p>
 
         <motion.h1
-          initial= opacity: 0, y: 20 
-          animate= opacity: 1, y: 0 
+          initial={fadeUp.hidden}
+          animate={fadeUp.visible}
           transition= duration: 0.5, delay: 0.1 
           className="font-heading text-display-mobile md:text-display max-w-4xl mx-auto"
         >
@@ -32,18 +31,17 @@ export function Hero() {
         </motion.h1>
 
         <motion.p
-          initial= opacity: 0, y: 20 
-          animate= opacity: 1, y: 0 
+          initial={fadeUp.hidden}
+          animate={fadeUp.visible}
           transition= duration: 0.5, delay: 0.2 
           className="mt-6 text-body-lg text-text-secondary max-w-2xl mx-auto"
         >
-          A Web3 venture studio that turns builder energy into grant-funded,
-          launchpad-ready protocols &mdash; in 3 months.
+          A Web3 venture studio that turns builder energy into grant-funded, launchpad-ready protocols &mdash; in 3 months.
         </motion.p>
 
         <motion.div
-          initial= opacity: 0, y: 20 
-          animate= opacity: 1, y: 0 
+          initial={fadeUp.hidden}
+          animate={fadeUp.visible}
           transition= duration: 0.5, delay: 0.3 
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
         >

@@ -5,6 +5,7 @@ import { GlassCard } from "@/components/shared/glass-card";
 import { BentoGrid } from "@/components/shared/bento-grid";
 import { ShieldCheck, Users, BarChart3, Globe, Repeat, Clock } from "lucide-react";
 import { motion } from "framer-motion";
+import { fadeUp, viewportOnce, stagger } from "@/lib/animations";
 
 const props = [
   { icon: ShieldCheck, title: "Pre-vetted Projects", description: "Every project passes our multi-sprint selection process. No unvetted teams. No ghost projects." },
@@ -23,13 +24,7 @@ export function ValueProps() {
       </div>
       <BentoGrid columns={3}>
         {props.map((prop, i) => (
-          <motion.div
-            key={prop.title}
-            initial= opacity: 0, y: 20 
-            whileInView= opacity: 1, y: 0 
-            viewport= once: true 
-            transition= duration: 0.5, delay: i * 0.1 
-          >
+          <motion.div key={prop.title} initial={fadeUp.hidden} whileInView={fadeUp.visible} viewport={viewportOnce} transition={stagger(i)}>
             <GlassCard className="h-full">
               <prop.icon className="h-7 w-7 text-accent mb-3" />
               <h3 className="font-heading text-base font-bold mb-2">{prop.title}</h3>
